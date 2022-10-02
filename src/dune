@@ -1,0 +1,6 @@
+(library
+ (name bonsai_disclosure_component)
+ (public_name bonsai-disclosure-component)
+ (libraries bonsai bonsai-toggleable core virtual_dom)
+ (preprocess
+  (pps ppx_jane)))
