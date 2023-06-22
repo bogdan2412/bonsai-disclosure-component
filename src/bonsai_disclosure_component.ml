@@ -7,7 +7,7 @@ let component' state ~untoggled_classes ~toggled_classes nodes =
     | Untoggled -> untoggled_classes
     | Toggled -> toggled_classes
   in
-  Vdom.Node.div ~attr:(Vdom.Attr.many [ Vdom.Attr.classes classes ]) nodes
+  Vdom.Node.div ~attrs:[ Vdom.Attr.classes classes ] nodes
 ;;
 
 let component ~untoggled_classes ~toggled_classes nodes =
@@ -33,7 +33,7 @@ module Button_and_panel = struct
     in
     let button =
       Vdom.Node.div
-        ~attr:Vdom.Attr.(button_attr @ on_click (fun _ -> toggle ()))
+        ~attrs:[ button_attr; Vdom.Attr.on_click (fun _ -> toggle ()) ]
         button_nodes
     in
     { Bonsai_toggleable.value = { button; panel }; toggle; set_state }
