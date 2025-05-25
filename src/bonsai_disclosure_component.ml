@@ -22,10 +22,8 @@ module Button_and_panel = struct
     }
 
   let make ~button ~panel =
-    let%map.Bonsai.Computation { value = { button = button_attr, button_nodes; panel }
-                               ; toggle
-                               ; set_state
-                               }
+    let%map.Bonsai.Computation
+        { value = { button = button_attr, button_nodes; panel }; toggle; set_state }
       =
       let%map.Bonsai_toggleable.Computation button = button
       and panel = panel in
